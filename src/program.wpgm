@@ -1,0 +1,22 @@
+import wollok.game.*
+import autos.*
+
+program Juego {
+
+	game.height(12)
+	game.width(12)
+	
+	game.title("Juego De Autos")
+	game.ground("paredLadrillos3.jpg")
+	
+	corsa.position(game.at(0.randomUpTo(game.width()).truncate(0), 0.randomUpTo(game.height()).truncate(0)))
+	game.addVisual(corsa)
+	
+	keyboard.up().onPressDo({corsa.subir()})
+	keyboard.down().onPressDo({corsa.bajar()})
+	keyboard.right().onPressDo({corsa.desplazarDerecha()})
+	keyboard.left().onPressDo({corsa.desplazarIzquierda()})
+	
+	game.start()
+	
+}
